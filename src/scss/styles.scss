@@ -1,0 +1,10 @@
+$theme-colors: (
+  'primary': #042a2b,
+  'secondary': #d7dae5,
+  'success': #9cfc97,
+  'info': #705d56,
+  'warning': #81717a
+);
+
+// Import all of Bootstrap's CSS
+@import 'bootstrap/scss/bootstrap';
