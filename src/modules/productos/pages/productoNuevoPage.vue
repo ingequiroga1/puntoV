@@ -23,12 +23,17 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <label for="marca" class="form-label">Marca</label>
+                        <input v-model="marca" type="text" class="form-control" id="marca"
+                            placeholder="Ingresa marca del producto" required>
+                    </div>
+                    <div class="col-md-4">
                         <label for="precio" class="form-label">Precio</label>
                         <input v-model="precio" type="number" class="form-control" id="precio"
                             placeholder="Ingresa precio del producto">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="cantidad" class="form-label">Cantidad</label>
                         <input v-model="cantidad" type="number" class="form-control" id="cantidad"
                             placeholder="Ingresa cantidad a registrar">
@@ -52,7 +57,8 @@ export default {
             nombreproducto: '',
             categoria: '',
             precio: 0,
-            cantidad: 0
+            cantidad: 0,
+            marca: ''
         }
 
     },
@@ -73,7 +79,8 @@ export default {
                 "descripcion": this.nombreproducto,
                 "precio": this.precio,
                 "linea": this.categoria,
-                "existencia": this.cantidad
+                "existencia": this.cantidad,
+                "marca": this.marca
             }
 
             Swal.showLoading()
