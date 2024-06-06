@@ -2,7 +2,10 @@ import axios from 'axios'
 
 const removeProductoVentaHelper = (dataEliminar) => {
   const { idprod, idventa } = dataEliminar
-  return axios.post('http://localhost:3001/venta/' + idventa + '/' + idprod + '/eliminar', {})
+  return axios.post(
+    import.meta.env.VITE_BASE_API_URL + 'venta/' + idventa + '/' + idprod + '/eliminar',
+    {}
+  )
 }
 
 export default removeProductoVentaHelper

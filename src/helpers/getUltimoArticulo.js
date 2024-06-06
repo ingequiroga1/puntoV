@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 const getUltimoArticuloHelper = () => {
-  return axios.get('http://localhost:3001/producto/ultimoArticulo')
+  return axios.get(import.meta.env.VITE_BASE_API_URL + 'producto/ultimoArticulo')
 }
 export default getUltimoArticuloHelper

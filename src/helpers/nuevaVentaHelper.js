@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const nuevaVenta = () => {
-  return axios.get('http://localhost:3001/venta/create', {
+  return axios.get(import.meta.env.VITE_BASE_API_URL + 'venta/create', {
     headers: {
       'content-Type': 'aplication/json'
     }

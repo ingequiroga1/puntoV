@@ -6,7 +6,7 @@ const saveClienteHelper = (datoscliente) => {
   }
   console.log(clienteGuardar)
   return axios.post(
-    'http://localhost:3001/venta/api/' + datoscliente.idventa + '/capturista',
+    import.meta.env.VITE_BASE_API_URL + 'venta/api/' + datoscliente.idventa + '/capturista',
     clienteGuardar
   )
 }

@@ -18,6 +18,9 @@ export const setProductoVenta = (state, producto) => {
 export const updateProdVenta = (state, producto) => {
   state.productosVenta[producto.index].cantidad =
     parseFloat(state.productosVenta[producto.index].cantidad) + parseFloat(producto.cantidad)
+
+  state.productosVenta[producto.index].importe =
+    parseFloat(state.productosVenta[producto.index].importe) + parseFloat(producto.importe)
 }
 
 export const quitarProductoV = (state, idarticulo) => {

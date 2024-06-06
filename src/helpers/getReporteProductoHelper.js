@@ -2,7 +2,11 @@ import axios from 'axios'
 
 const getReporteProductoHelper = (fechas) => {
   return axios.get(
-    'http://localhost:3001/venta/productos/reporte/' + fechas.inicio + '/' + fechas.fin
+    import.meta.env.VITE_BASE_API_URL +
+      'venta/productos/reporte/' +
+      fechas.inicio +
+      '/' +
+      fechas.fin
   )
 }
 export default getReporteProductoHelper

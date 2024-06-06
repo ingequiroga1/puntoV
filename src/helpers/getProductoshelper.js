@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const getProductoshelper = () => {
-  return axios.get('http://localhost:3001/producto/lista', {
+  return axios.get(import.meta.env.VITE_BASE_API_URL + 'producto/lista', {
     headers: {
       'content-Type': 'aplication/json'
     }

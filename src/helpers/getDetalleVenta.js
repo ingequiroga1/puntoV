@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const getDetalleVentas = (idventa) => {
-  return axios.get('http://localhost:3001/venta/' + idventa, {
+  return axios.get(import.meta.env.VITE_BASE_API_URL + 'venta/' + idventa, {
     headers: {
       'content-Type': 'aplication/json'
     }

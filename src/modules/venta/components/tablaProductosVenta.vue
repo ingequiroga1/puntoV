@@ -17,7 +17,7 @@
                     <td>{{ prod.descripcion }}</td>
                     <td>{{ prod.cantidad }}</td>
                     <td>{{ prod.precio }}</td>
-                    <td>{{ prod.precio * prod.cantidad }} </td>
+                    <td>{{ prod.importe }} </td>
                     <td><button @click="quitarProducto(prod)" class="btn btn-warning">Borrar</button></td>
                 </tr>
             </tbody>

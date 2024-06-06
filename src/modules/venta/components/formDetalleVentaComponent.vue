@@ -4,13 +4,13 @@
             <div v-if="producto" class="row mb-3">
                 <div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="productos" class="form-label">Descripcion</label>
                             <input type="text" class="form-control" id="productos" required
                                 v-model="producto.descripcion">
 
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <label for="cantidad" class="form-label">Cantidad</label>
                             <input type="text" class="form-control" id="cantidad" required v-model="cantidad">
                         </div>
@@ -43,14 +43,17 @@ export default {
     data() {
         return {
             producto: null,
-            cantidad: 1
+            cantidad: 1,
+            precioBase: 0
 
         }
     },
+
     methods: {
         ...mapActions('vender', { enviarProd: 'addProductoVenta', updateProd: 'updateProductoVenta' }),
         loadProd() {
             this.producto = this.proFormSel
+            this.precioBase = this.proFormSel.precio
         },
         enviarProducto(e) {
             e.preventDefault()
@@ -63,8 +66,10 @@ export default {
                 precio: this.producto.precio,
                 index: indice,
                 idventa: this.id,
-                articulo: this.producto.articulo
+                articulo: this.producto.articulo,
+                preciobase: this.precioBase
             }
+
 
             if (indice < 0) {
                 this.enviarProd(productoaRegistrar)

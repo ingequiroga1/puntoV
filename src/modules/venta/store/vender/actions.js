@@ -28,26 +28,29 @@ export const seleccionarProd = async ({ commit }, prodSeleccionado) => {
 }
 
 export const addProductoVenta = async ({ commit }, producto) => {
-  const { clave, descripcion, precio, cantidad, articulo, idventa } = producto
-  AgregarProducto(articulo, descripcion, cantidad, idventa)
-  const prodnew = { clave, descripcion, precio, cantidad }
+  const { clave, descripcion, precio, cantidad, articulo, idventa, preciobase } = producto
+  AgregarProducto(articulo, descripcion, cantidad, idventa, precio)
+  let importe = cantidad * precio
+  const prodnew = { clave, descripcion, precio: preciobase, cantidad, importe, preciobase }
   commit('setProductoVenta', prodnew)
 }
 
 export const updateProductoVenta = async ({ commit }, producto) => {
-  const { clave, descripcion, precio, index, cantidad, articulo, idventa } = producto
-  AgregarProducto(articulo, descripcion, cantidad, idventa)
-  const prodnew = { clave, descripcion, precio, cantidad, index }
+  const { clave, descripcion, precio, index, cantidad, articulo, idventa, preciobase } = producto
+  AgregarProducto(articulo, descripcion, cantidad, idventa, precio)
+  let importe = cantidad * precio
+  const prodnew = { clave, descripcion, precio, cantidad, index, importe, preciobase }
   commit('updateProdVenta', prodnew)
 }
 
-const AgregarProducto = async (articulo, descripcion, cantidad, idventa) => {
+const AgregarProducto = async (articulo, descripcion, cantidad, idventa, precio) => {
   const productoGuardar = {
     prodescripcion: '@' + articulo + '|' + descripcion,
-    cantidad: cantidad
+    cantidad: cantidad,
+    precio: precio
   }
+
   const { data } = await addProductoVentaHelper(idventa, productoGuardar)
-  console.log(data)
   if (data) {
     let descontarExistencia = 1
     let dataDescontar = {
@@ -90,7 +93,8 @@ export const getDetalleVenta = async ({ commit }, idventa) => {
       precio: element.producto.precio,
       cantidad: element.cantidad,
       articulo: element.producto.articulo,
-      id: element.producto._id
+      id: element.producto._id,
+      importe: element.importe
     }
     commit('setProductoVenta', prodAgregar)
   })

@@ -40,7 +40,7 @@ export default {
         async llenarPdf() {
             for (let index = 0; index < this.productosVenta.length; index++) {
                 const element = this.productosVenta[index];
-                this.dataProductos.push([element.clave, element.descripcion, element.cantidad, element.precio, element.precio * element.cantidad])
+                this.dataProductos.push([element.clave, element.descripcion, element.cantidad, element.precio, element.importe])
             }
 
             if (this.secuencia) {

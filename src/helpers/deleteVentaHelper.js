@@ -6,7 +6,7 @@ const deleteVentaHelper = (idventa) => {
   }
   console.log(ventaEliminar)
 
-  return axios.post('http://localhost:3001/venta/delete', ventaEliminar)
+  return axios.post(import.meta.env.VITE_BASE_API_URL + 'venta/delete', ventaEliminar)
 }
 
 export default deleteVentaHelper

@@ -18,5 +18,6 @@ export default () => ({
   ventas: [],
   productos: [],
   prodSeleccionado: {},
-  productosVenta: []
+  productosVenta: [],
+  descuento: 0
 })

@@ -40,7 +40,7 @@ export const getProdIndex = (state) => (clave) => {
 export const getVentaTotal = (state) => {
   let total = 0
   state.productosVenta.forEach((element) => {
-    total += element.cantidad * element.precio
+    total += element.importe
   })
   return total
 }
